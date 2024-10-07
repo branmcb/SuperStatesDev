@@ -1,0 +1,22 @@
+#Shoalhaven
+
+owner = NSW
+controller = NSW
+add_core = NSW
+add_core = ILW
+culture = new_south_welsh
+religion = austral_protestant
+capital = "Nowra"
+trade_goods = grain
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes #3450
+discovered_by = australian
+
+1901.1.1 = {
+	owner = AUS
+	controller = AUS
+	add_core = AUS
+}

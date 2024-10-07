@@ -1,0 +1,470 @@
+#Generic Missions For North American Regions
+#usually 2-3 missions
+#On column (slot) 5
+
+#New England Regional
+gen_new_england = {
+	slot = 5
+	generic = yes
+	ai = yes
+
+	potential = {
+		capital_scope = {
+			region = new_england_region
+		}
+	}
+	has_country_shield = no
+
+	gen_new_england_inno = {
+		icon = mission_rb_renovate_oxbridge
+		required_missions = { }
+		position = 1
+		trigger = {
+			university = 15
+			all_neighbor_country = {
+				NOT = {
+					tech_difference = 0
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Rule Britannia"
+				}
+				add_innovativeness_big_effect = yes
+			}
+			else = {
+				add_adm_power = 50
+			}
+			add_prestige = 20
+		}
+	}
+
+	gen_new_england_naval = {
+		icon = mission_rb_a_mighty_fleet
+		required_missions = { }
+		position = 2
+		trigger = {
+			num_of_light_ship = 30
+			navy_size_percentage = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "new_england_trade_ship"
+				duration = 9125 #25 years
+			}
+		}
+	}
+}
+
+#Mid-Atlantic Regional
+gen_mid_atlantic = {
+	slot = 5
+	generic = yes
+	ai = yes
+
+	potential = {
+		capital_scope = {
+			OR = {
+				region = mid_atlantic_region
+				area = allegheny_area
+				area = shenandoah_area
+			}
+		}
+	}
+	has_country_shield = no
+
+	gen_mid_atlantic_trade_node = {
+		icon = mission_war_chest
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			home_trade_node = {
+				highest_value_trade_node = yes
+				is_strongest_trade_power = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 30
+			add_country_modifier = {
+				name = "gen_eur_trade_node_mod"
+				duration = 7300
+			}
+		}
+	}
+
+	gen_mid_atlantic_banking = {
+		icon = medici_bank_ledgers
+		required_missions = { }
+		position = 2
+
+		trigger = {
+			NOT = {
+				num_of_loans = 1
+			}
+			treasury = 2000
+			custom_trigger_tooltip = {
+				tooltip = mid_atlantic_banking_tooltip
+				OR = {
+					all_neighbor_country = {
+						inflation = ROOT
+					}
+					NOT = { inflation = 0.1 }
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "mid_atlantic_bankers"
+				duration = 9125
+			}
+		}
+	}
+}
+
+#American Midwest Regional
+# gen_midwest = {
+# 	slot = 5
+# 	generic = yes
+# 	ai = yes
+
+# 	potential = {
+# 		capital_scope = {
+# 			region = american_midwest_region
+# 		}
+# 	}
+# 	has_country_shield = no
+
+# 	gen_generic_midwest_1 = { #industry? middle of america? i got no clue what this should be
+# 		icon = all_bases_covered
+# 		required_missions = { }
+# 		position = 1
+# 		trigger = {
+			
+# 		}
+# 		effect = {
+			
+# 		}
+# 	}
+# }
+
+#Great Plains Regional
+gen_greatplains = {
+	slot = 5
+	generic = yes
+	ai = yes
+
+	potential = {
+		capital_scope = {
+			OR = {
+				region = great_plains_region
+				area = oklahoma_area
+				area = ozarks_area
+			}
+		}
+	}
+	has_country_shield = no
+
+	gen_cowboys = {
+		icon = mission_cowboy
+        required_missions = { }
+        position = 1
+
+        provinces_to_highlight = {
+            OR = {
+                trade_goods = livestock
+            }
+            NOT = { owned_by = ROOT }
+            has_discovered = ROOT
+        }
+        trigger = {
+            livestock = 10
+        }
+        effect = {
+            add_country_modifier = {
+                name = "gen_cowboy_modifier" #cav combat and slighly cheaper cav - yeehaw
+                duration = 9125
+            }
+        }
+	}
+}
+
+#Great Plains and Midwest shared Regional
+gen_breadbasket_slot = {
+	slot = 5
+	generic = yes
+	ai = yes
+
+	potential = {
+		capital_scope = {
+			OR = {
+				region = american_midwest_region
+				region = great_plains_region
+				area = oklahoma_area
+				area = ozarks_area
+			}
+		}
+	}
+	has_country_shield = no
+
+	gen_breadbasket = { #have lots of grain
+		icon = mission_pol_breadbasket_europe
+		required_missions = { }
+		position = 2
+		trigger = {
+			OR = {
+				trading_bonus = {
+					trade_goods = grain
+					value = yes
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					trade_goods = grain
+					has_manufactory_trigger = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "bread_basket_of_america_modifier"
+				duration = 9125
+			}
+			custom_tooltip = gen_breadbasket_tooltip
+			hidden_effect = {
+				every_owned_province = {
+					if = {
+						limit = {
+							trade_goods = grain
+							has_manufactory_trigger = yes
+						}
+						add_base_production = 1
+					}
+				}
+			}
+		}
+	}
+}
+
+#Southern Regional
+gen_southern = {
+	slot = 5
+	generic = yes
+	ai = yes
+
+	potential = {
+		capital_scope = {
+			OR = {
+				region = deep_south_region
+				region = old_southwest_region
+				region = appalachia_region
+			}
+		}
+		NOT = {
+			capital_scope = {
+				OR = {
+					area = monongahela_area
+					area = shenandoah_area
+					area = allegheny_area
+					area = oklahoma_area
+					area = ozarks_area
+				}
+			}
+		}
+	}
+	has_country_shield = no
+
+	gen_south_religion = {
+		icon = mission_european_church
+		required_missions = { }
+		position = 1
+		trigger = {
+			temple = 10
+			NOT = { current_age = age_of_discovery }
+			religious_unity = 1
+		}
+		effect = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
+			add_country_modifier = {
+				name = "gen_eur_defender"
+				duration = 5475
+			}
+		}
+	}
+
+	gen_south_plantation = {
+		icon = mission_peasants
+		required_missions = { }
+		position = 2
+		trigger = {
+			plantations = 20
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gen_south_plantation_economy"
+				duration = 9125
+			}
+		}
+	}
+}
+
+#Canadian Regional
+gen_canadian = {
+	slot = 5
+	generic = yes
+	ai = yes
+
+	potential = {
+		capital_scope = {
+			superregion = canada_superregion
+		}
+		NOT = {
+			capital_scope = {
+				OR = {
+					area = alaska_area
+					area = aleutia_area
+					area = inside_passage_area
+					region = greenland_region
+				}
+			}
+		}
+	}
+
+	gen_canada_1 = {
+		icon = mission_rb_colonise_canada
+		required_missions = { }
+		position = 1
+		trigger = {
+			num_of_owned_provinces_with = {
+				OR = {
+					has_terrain = forest
+					has_terrain = woods
+				}
+				has_building = workshop
+				value = 5
+			}
+		}
+		effect = {
+			unlock_estate_privilege = {
+				estate_privilege = estate_burghers_forest_expansion
+			}
+		}
+	}
+
+	gen_canada_2 = {
+		icon = mission_trade_company_region_abroad
+		required_missions = { }
+		position = 2
+		trigger = {
+			OR = {
+				num_of_owned_provinces_with = {
+					trade_goods = fur
+					has_building = tradecompany
+					value = 8
+				}
+				trading_bonus = {
+					trade_goods = fur
+					value = yes
+				}
+			}
+		}
+		effect = {
+			add_mercantilism = 3
+			add_country_modifier = {
+				name = "gen_renewed_fur_trade"
+				duration = 9125
+			}
+		}
+	}
+}
+
+#Great Lake Regional
+gen_greatlakes = {
+	slot = 5
+	generic = yes
+	ai = yes
+
+	potential = {
+		capital_scope = {
+			region = great_lakes_region
+		}
+	}
+	has_country_shield = no
+
+
+	gen_greatlakes_1 = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { }
+		position = 2
+		trigger = {
+			num_of_merchants = 3
+			calc_true_if = {
+				custom_trigger_tooltip = {
+					tooltip = "gen_borders_superior_tt"
+				}
+				hidden_trigger = {
+					any_owned_province = {
+						province_group = lake_superior_provincegroup
+					}
+				}
+				amount = 1
+			}
+			calc_true_if = {
+				custom_trigger_tooltip = {
+					tooltip = "gen_borders_huron_tt"
+				}
+				hidden_trigger = {
+					any_owned_province = {
+						province_group = lake_huron_provincegroup
+					}
+				}
+				amount = 1
+			}
+			calc_true_if = {
+				custom_trigger_tooltip = {
+					tooltip = "gen_borders_michigan_tt"
+				}
+				hidden_trigger = {
+					any_owned_province = {
+						province_group = lake_michigan_provincegroup
+					}
+				}
+				amount = 1
+			}
+			calc_true_if = {
+				custom_trigger_tooltip = {
+					tooltip = "gen_borders_erie_tt"
+				}
+				hidden_trigger = {
+					any_owned_province = {
+						province_group = lake_erie_provincegroup
+					}
+				}
+				amount = 1
+			}
+			calc_true_if = {
+				custom_trigger_tooltip = {
+					tooltip = "gen_borders_ontario_tt"
+				}
+				hidden_trigger = {
+					any_owned_province = {
+						province_group = lake_ontario_provincegroup
+					}
+				}
+				amount = 1
+			}
+		}
+		effect = {
+			add_mercantilism = 3
+			add_country_modifier = {
+				name = "gen_lake_traders"
+				duration = 9125
+			}
+		}
+	}
+}

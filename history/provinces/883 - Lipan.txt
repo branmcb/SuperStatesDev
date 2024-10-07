@@ -1,0 +1,26 @@
+#Zapotlan el Grande
+
+owner = JLC
+controller = JLC
+add_core = JLC
+culture = jaliscan
+religion = s_catholic
+capital = "Ciudad Guzmán"
+is_city = yes #9780
+trade_goods = agave
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+discovered_by = north_american
+discovered_by = mesoamerican
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1810.9.16 = {
+	owner = MEX
+	controller = MEX
+	add_core = MEX
+}

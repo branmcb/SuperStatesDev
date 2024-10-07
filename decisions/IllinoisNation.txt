@@ -1,0 +1,96 @@
+country_decisions = {
+
+## Reform into Illinois
+	reform_illinois = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = formed_great_lakes_flag }
+			NOT = { has_country_flag = formed_midwest_flag }
+			NOT = { has_country_flag = formed_great_plains_flag }
+			NOT = { has_country_flag = formed_illinois_flag }
+			NOT = { exists = ILI }
+			NOT = { exists = NAM }
+			NOT = { tag = USA }
+			NOT = { exists = GLK }
+			#NOT = { exists = WBU }
+			#NOT = { exists = FSA }
+			OR = {
+				tag = CCK
+				tag = ILS
+				primary_culture = illinoisan 
+				primary_culture = chicagoan
+				primary_culture = little_egyptian
+				primary_culture = great_laker_illinoisan
+			}
+			OR = {
+				ai = no
+				AND = 		{
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2565
+				province_id = 2562
+				area = little_egypt_area
+				area = illinois_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			num_of_owned_provinces_with = {
+				value = 4
+				area = illinois_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = little_egypt_area
+				is_core = root
+			}
+			owns_core_province = 2565 # Chicago
+			owns_core_province = 2562 # Springfield
+		}
+				
+		effect = {
+			on_change_tag_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 730
+								}
+			set_country_flag = formed_illinois_flag
+			add_prestige = 10
+			change_tag = ILI
+			ILI = {
+			if = {
+					limit = {
+					NOT = { government_rank = 2 }
+							}
+				set_government_rank = 2
+			}
+			little_egypt_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ILI
+			}
+			illinois_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ILI
+			}
+				}
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 } #Swap
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,27 @@
+#Newcastle
+
+latent_trade_goods = {
+	coal
+}
+
+owner = NSW
+controller = NSW
+add_core = NSW
+add_core = SYD
+add_core = NGL
+culture = new_south_welsh
+religion = austral_catholic
+capital = "Newcastle"
+trade_goods = iron #coal
+hre = no
+base_tax = 5
+base_production = 5
+base_manpower = 5
+is_city = yes #16070
+discovered_by = australian
+
+1901.1.1 = {
+	owner = AUS
+	controller = AUS
+	add_core = AUS
+}

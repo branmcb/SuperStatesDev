@@ -1,0 +1,38 @@
+#1107 - Taranaki
+
+add_core = TNK
+owner = TNK
+controller = TNK
+culture = maori
+religion = animism
+hre = no
+is_city = yes
+trade_goods = salt
+base_tax = 4
+base_production = 4
+base_manpower = 2
+capital = "New Plymoth"
+native_size = 50
+native_ferocity = 4
+native_hostileness = 9
+discovered_by = australian
+discovered_by = polynesian_tech
+
+1840.1.1 = {
+	trade_goods = livestock
+	is_city = yes
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+
+1852.6.30 = {	
+	culture = new_zealander
+	add_core = NZL
+}
+
+1907.1.1 = {
+	owner = NZL
+	controller = NZL
+	remove_core = GBR
+}

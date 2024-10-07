@@ -1,0 +1,34 @@
+#840 - Honduras
+
+owner = HND
+controller = HND
+add_core = HND
+capital = "Trujillo"
+religion = s_catholic
+culture = honduran
+hre = no
+is_city = yes #2870
+base_tax = 1
+base_production = 1
+base_manpower = 3
+trade_goods = livestock
+discovered_by = north_american
+discovered_by = mesoamerican
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1810.9.16 = {
+	add_core = CAM
+}
+
+1823.9.15 = {
+	owner = CAM
+	controller = CAM
+}
+
+1838.11.5 = {
+	owner = HND
+	controller = HND
+}

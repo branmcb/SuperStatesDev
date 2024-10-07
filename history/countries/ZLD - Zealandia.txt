@@ -1,0 +1,5 @@
+government = republic
+technology_group = australian
+religion = austral_protestant
+primary_culture = new_zealander
+capital = 1107 # Wellington

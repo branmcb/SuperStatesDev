@@ -1,0 +1,9 @@
+government = monarchy
+technology_group = north_american
+primary_culture = nevisian
+religion = s_protestant
+capital = 494
+
+1528.1.1 = {
+    religion = protestant
+}

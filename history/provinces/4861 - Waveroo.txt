@@ -1,0 +1,4 @@
+#4861 - Sangre de Cristo Mountains
+
+discovered_by = north_american
+discovered_by = mesoamerican

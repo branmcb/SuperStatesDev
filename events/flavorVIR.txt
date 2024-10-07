@@ -1,0 +1,245 @@
+namespace = flavorVIR
+
+country_event = {
+	id = flavorVIR.1000
+	title = flavorVIR.1000t
+	desc = flavorVIR.1000d
+	picture = CULTURE_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Move to Mid-Atlantic Virginian
+		name = flavorVIR.1000a
+		trigger = {
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 6
+					province_group = virginia_provincegroup
+					culture = northern_virginian
+				}
+				num_of_owned_provinces_with = {
+					value = 6
+					province_group = virginia_provincegroup
+					culture = midatlantic_virginian
+				}
+				primary_culture = northern_virginian
+				primary_culture = midatlantic_virginian
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = midatlantic_virginian
+				}
+			}
+			change_primary_culture = midatlantic_virginian
+		}
+		hidden_effect = {
+			set_ruler_culture = midatlantic_virginian
+			if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = midatlantic_virginian
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = virginian
+                        consort_culture = northern_virginian
+                        consort_culture = mountaineer
+                    }
+                }
+                set_consort_culture = midatlantic_virginian
+            }
+			every_province = {
+				limit = {
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						culture = virginian
+						culture = northern_virginian
+						AND = {
+							culture = mountaineer
+							province_group = virginia_provincegroup
+						}
+						culture = midatlantic_virginian
+						culture = appalachian_virginian
+					}
+				}
+				change_culture = midatlantic_virginian
+			}
+		}
+		custom_tooltip = flavorVIR.1000a.tt
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Move to Appalachian Virginian
+		name = flavorVIR.1000b
+		trigger = {
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 6
+					province_group = virginia_provincegroup
+					culture = mountaineer
+				}
+				num_of_owned_provinces_with = {
+					value = 6
+					province_group = virginia_provincegroup
+					culture = appalachian_virginian
+				}
+				primary_culture = mountaineer
+				primary_culture = appalachian_virginian
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = appalachian_virginian
+				}
+			}
+			change_primary_culture = appalachian_virginian
+		}
+		hidden_effect = {
+			set_ruler_culture = appalachian_virginian
+			if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = appalachian_virginian
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = virginian
+                        consort_culture = northern_virginian
+                        consort_culture = mountaineer
+                    }
+                }
+                set_consort_culture = appalachian_virginian
+            }
+			every_province = {
+				limit = {
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						culture = virginian
+						culture = northern_virginian
+						culture = mountaineer
+						culture = midatlantic_virginian
+						culture = appalachian_virginian
+					}
+				}
+				change_culture = appalachian_virginian
+			}
+		}
+		custom_tooltip = flavorVIR.1000b.tt
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Incase you finish this mission while not being any virginian culture and wanna nope out
+		name = flavorVIR.1000e
+		trigger = {
+			NOT = {
+				OR = {
+					num_of_owned_provinces_with = {
+						value = 6
+						province_group = virginia_provincegroup
+						culture = northern_virginian
+					}
+					num_of_owned_provinces_with = {
+						value = 6
+						province_group = virginia_provincegroup
+						culture = mountaineer
+					}
+					num_of_owned_provinces_with = {
+						value = 6
+						province_group = virginia_provincegroup
+						culture = appalachian_virginian
+					}
+					num_of_owned_provinces_with = {
+						value = 6
+						province_group = virginia_provincegroup
+						culture = midatlantic_virginian
+					}
+				}
+			}
+		}
+		add_prestige = 20
+
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+country_event = {
+	id = flavorVIR.2
+	title = flavorVIR.2t
+	desc = flavorVIR.2d
+	picture = CULTURE_eventPicture
+
+	is_triggered_only = yes
+
+	option = { # Embrace West Virginian
+		name = flavorVIR.2a
+		add_accepted_culture_or_dip_power = { culture = west_virginian free = yes }
+		ai_chance = {
+			factor = 60
+		}
+	}
+
+	option = { # Integrate West Virginia
+		name = flavorVIR.2b
+		tooltip = {
+			monongahela_area = {
+				add_province_modifier = {
+					name = vir_integrating_wv
+					duration = 10950
+				}
+			}
+
+			2541 = {
+				add_province_modifier = {
+					name = vir_integrating_wv
+					duration = 10950
+				}
+			}
+
+			3011 = {
+				add_province_modifier = {
+					name = vir_integrating_wv
+					duration = 10950
+				}
+			}
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture = west_virginian
+				}
+				add_province_modifier = {
+					name = vir_integrating_wv
+					duration = 10950
+				}
+			}
+	}
+		ai_chance = {
+			factor = 40
+		}
+	}
+}

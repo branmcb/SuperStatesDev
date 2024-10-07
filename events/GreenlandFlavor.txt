@@ -1,0 +1,77 @@
+##########################
+#
+#  Written by:
+#  KeoniPhoenix
+#
+##########################
+
+namespace = GreenlandFlavor
+
+#Greenland Culture Event
+country_event = {
+	id = GreenlandFlavor.1
+	title = "GreenlandFlavor.1t"
+	desc = "GreenlandFlavor.1d"
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		NOT = {
+			has_country_flag = greenlandic_culture
+		}
+		any_owned_province = {
+			region = greenland_region
+			is_capital = no
+			owned_by = ROOT
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 250
+		
+		modifier = {
+			factor = 0.5
+			stability = -1
+		}
+		modifier = {
+			factor = 0.5
+			greenland_region = {
+				type = all
+				has_owner_accepted_culture = no
+			}
+		}
+		modifier = {
+			factor = 0.5
+			greenland_region = {
+				type = all
+				has_owner_religion = no
+			}
+		}
+		modifier = {
+			factor = 4
+			greenland_region = {
+				type = all
+				is_core = ROOT
+			}
+		}
+		modifier = {
+			factor = 2
+			any_owned_province = {
+				region = greenland_region 
+				development = 35
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_any_disaster = yes
+		}
+	}
+	
+	option = {
+		name = "GreenlandFlavor.1opta"
+		set_country_flag = greenlandic_culture
+		greenland_region = {
+			change_culture = greenlandic
+			add_core = GRL
+		}
+	}
+}

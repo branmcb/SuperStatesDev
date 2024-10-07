@@ -1,0 +1,46 @@
+#Ocean
+
+owner = NJY
+controller = NJY
+add_core = NJY
+#add_core = EJY
+add_core = SNJ
+culture = south_jerseyan
+religion = s_catholic
+capital = "Toms River"
+trade_goods = naval_supplies
+hre = no
+base_tax = 4
+base_production = 2
+base_manpower = 4
+is_city = yes #1020
+discovered_by = north_american
+discovered_by = mesoamerican
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1555.1.1 = {
+	owner = MID
+	controller = MID
+	add_core = MID
+}
+
+1675.2.4 = {
+	owner = FSA
+	controller = FSA
+	add_core = FSA
+}
+
+1675.2.5 = {
+	owner = NJY
+	controller = NJY
+	remove_core = FSA
+}
+
+1776.7.4 = { 
+	owner = USA	
+	controller = USA
+	add_core = USA 
+}

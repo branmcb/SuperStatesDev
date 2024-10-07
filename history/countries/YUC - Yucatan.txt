@@ -1,0 +1,5 @@
+government = republic
+technology_group = mesoamerican
+religion = s_catholic
+primary_culture = yucatanian
+capital = 844	# Mérida

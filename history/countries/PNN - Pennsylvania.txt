@@ -1,0 +1,23 @@
+government = republic
+add_government_reform = american_state_reform
+technology_group = north_american
+primary_culture = pennsylvanian
+add_accepted_culture = western_pennsylvanian
+religion = s_protestant
+capital = 3138 # Harrisburg
+
+1443.1.3 = {
+	monarch = {
+		name = "Thomas Mifflin"
+		adm = 5
+		dip = 5
+		mil = 6
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = well_connected_personality
+	add_ruler_personality = strict_personality
+}
+
+1528.1.1 = {
+	religion = s_methodist
+}

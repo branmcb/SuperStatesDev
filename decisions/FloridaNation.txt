@@ -1,0 +1,128 @@
+country_decisions = {
+
+## Reform into Florida
+	reform_florida = {
+		major = yes
+		potential = 	{
+			NOT = { exists = FLO }
+			NOT = { exists = CSA }
+			NOT = { exists = NAM }
+			NOT = { tag = USA }
+			NOT = { exists = GCL }
+			NOT = { exists = NSP }
+			NOT = { exists = ASE }
+			NOT = { has_country_flag = formed_florida_flag }
+			OR  = {
+				tag = SFL
+				tag = MIM
+				tag = KYS
+				tag = WFL
+				tag = MSK
+				tag = EFL
+				primary_culture = floridian
+				primary_culture = south_floridian
+				primary_culture = west_floridian
+				primary_culture = miamian
+				primary_culture = caribbean_floridian
+				AND = {
+					primary_culture = cuban
+					capital_scope = {
+					area = south_florida_area
+					}
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		allow = {
+			num_of_owned_provinces_with = {
+				value = 2
+				area = north_florida_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = south_florida_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = st_johns_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 2
+				area = suncoast_area
+				is_core = root
+			}
+		}	
+		effect = {
+			on_change_tag_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 730
+								}
+			add_prestige = 10
+			change_tag = FLO
+			FLO = {
+			if = {
+					limit = {
+					NOT = { government_rank = 2 }
+							}
+				set_government_rank = 2
+			}
+			south_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = FLO
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = FLO
+			}
+			st_johns_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = FLO
+			}
+			suncoast_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = FLO
+			}
+			3266 = {
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+						add_permanent_claim = FLO
+				}
+			}
+			2543 = {
+				if = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+						add_permanent_claim = FLO
+				}
+			}
+			set_country_flag = formed_florida_flag
+				}
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 } #Swap
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

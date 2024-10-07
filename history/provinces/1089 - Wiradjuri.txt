@@ -1,0 +1,21 @@
+#Port Pirie
+
+owner = SAU
+controller = SAU
+add_core = SAU
+culture = south_australian
+religion = austral_protestant
+capital = "Port Pirie"
+trade_goods = wine
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 2
+is_city = yes #1450
+discovered_by = australian
+
+1901.1.1 = {
+	owner = AUS
+	controller = AUS
+	add_core = AUS
+}

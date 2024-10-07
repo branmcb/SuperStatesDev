@@ -1,0 +1,144 @@
+##########################
+#
+#  Written by:
+#  KeoniPhoenix
+#
+##########################
+
+namespace = FijiFlavor
+
+#Fiji Culture Event
+country_event = {
+	id = FijiFlavor.1
+	title = "FijiFlavor.1t"
+	desc = "FijiFlavor.1d"
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		NOT = { primary_culture = melanesian }
+		NOT = {
+			has_country_flag = fijian_culture
+		}
+		1242 = { 
+			is_capital = no
+			owned_by = ROOT
+			NOT = { culture = fijian }
+			NOT = { is_core = FIJ }
+		}
+		4900 = { 
+			is_capital = no
+			owned_by = ROOT
+			NOT = { culture = fijian }
+			NOT = { is_core = FIJ }
+		}
+		4901 = { 
+			is_capital = no
+			owned_by = ROOT
+			NOT = { culture = fijian }
+			NOT = { is_core = FIJ }
+		}
+		4902 = { 
+			is_capital = no
+			owned_by = ROOT
+			NOT = { culture = fijian }
+			NOT = { is_core = FIJ }
+		}
+		4938 = { 
+			is_capital = no
+			owned_by = ROOT
+			NOT = { culture = fijian }
+			NOT = { is_core = FIJ }
+		}
+		4937 = { 
+			is_capital = no
+			owned_by = ROOT
+			NOT = { culture = fijian }
+			NOT = { is_core = FIJ }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 250
+		modifier = {
+			factor = 0.5
+			stability = -1
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				1242 = { has_owner_accepted_culture = no }
+				4900 = { has_owner_accepted_culture = no }
+				4901 = { has_owner_accepted_culture = no }
+				4902 = { has_owner_accepted_culture = no }
+				4937 = { has_owner_accepted_culture = no }
+				4938 = { has_owner_accepted_culture = no }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				1242 = { has_owner_religion = no }
+				4900 = { has_owner_religion = no }
+				4901 = { has_owner_religion = no }
+				4902 = { has_owner_religion = no }
+				4937 = { has_owner_religion = no }
+				4938 = { has_owner_religion = no }
+			}
+		}
+		modifier = {
+			factor = 4
+			OR = {
+				1242 = { is_core = ROOT }
+				4900 = { is_core = ROOT }
+				4901 = { is_core = ROOT }
+				4902 = { is_core = ROOT }
+				4937 = { is_core = ROOT }
+				4938 = { is_core = ROOT }
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				1242 = { development = 35 }
+				4900 = { development = 35 }
+				4901 = { development = 35 }
+				4902 = { development = 35 }
+				4937 = { development = 35 }
+				4938 = { development = 35 }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_any_disaster = yes
+		}
+	}
+	
+	option = {
+		name = "FijiFlavor.1opta"
+		set_country_flag = fijian_culture
+		1242 = { 
+			change_culture = fijian
+			add_core = FIJ
+		}
+		4900 = { 
+			change_culture = fijian
+			add_core = FIJ
+		}
+		4901 = { 
+			change_culture = fijian
+			add_core = FIJ
+		}
+		4902 = { 
+			change_culture = fijian
+			add_core = FIJ
+		}
+		4937 = { 
+			change_culture = fijian
+			add_core = FIJ
+		}
+		4938 = { 
+			change_culture = fijian
+			add_core = FIJ
+		}
+	}
+}

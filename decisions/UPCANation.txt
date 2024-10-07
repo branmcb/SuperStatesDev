@@ -1,0 +1,135 @@
+country_decisions = {
+
+	upca_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = CAM }
+			NOT = { tag = MEX }
+			NOT = { exists = GCL }
+			OR = {
+				primary_culture = chiapan
+				tag = BLZ
+				tag = CRC
+				tag = ESL
+				tag = GTM
+				tag = HND
+				tag = NCG
+				tag = PNM
+				tag = LOS
+				culture_group = central_american_group
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 9	
+				}
+			}
+		}
+			provinces_to_highlight = {
+			OR = {
+				area = guatemala_area
+				area = guatemala_lowlands_area
+				area = honduras_area
+				area = nicaragua_area
+				area = costa_rica_area
+				area = panama_area
+				province_id = 850
+				province_id = 851
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				value = 3
+				area = guatemala_lowlands_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = guatemala_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = honduras_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = nicaragua_area
+				is_core = root
+			}
+			costa_rica_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			OR = {
+				AND = {
+					# Chiapas
+					owns_core_province = 850
+					owns_core_province = 851
+				}
+				num_of_owned_provinces_with = {
+					value = 3
+					area = panama_area
+					is_core = root
+				}
+			}
+		}
+		effect = {
+			on_change_tag_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 730
+			}
+			add_prestige = 20
+			change_tag = CAM
+			CAM = {
+				if = {
+					limit = {
+						NOT = { government_rank = 2 }
+					}
+				set_government_rank = 2
+				}
+				central_america_region = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+						}
+					}
+					add_permanent_claim = CAM
+				}
+				if = {
+					limit = {
+						850 = { NOT = { owned_by = ROOT } }
+					}
+					850 = { add_permanent_claim = CAM }
+				}
+				if = {
+					limit = {
+						851 = { NOT = { owned_by = ROOT } }
+					}
+					851 = { add_permanent_claim = CAM }
+				}
+			}
+			if = {
+				limit = {
+					government = republic
+				}
+				add_government_reform = central_american_republic_reform
+			}
+			# swap_non_generic_missions = yes
+			# country_event = { id = ideagroups.1 } #Swap
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

@@ -1,0 +1,35 @@
+#2640 Managua
+
+owner = NCG
+controller = NCG
+add_core = NCG
+capital = "Managua"
+religion = s_catholic
+culture = nicaraguan
+hre = no
+is_city = yes #105520
+base_tax = 4
+base_production = 9
+base_manpower = 6
+trade_goods = livestock
+discovered_by = north_american
+discovered_by = mesoamerican
+center_of_trade = 1
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1810.9.16 = {
+	add_core = CAM
+}
+
+1823.9.15 = {
+	owner = CAM
+	controller = CAM
+}
+
+1838.11.5 = {
+	owner = NCG
+	controller = NCG
+}

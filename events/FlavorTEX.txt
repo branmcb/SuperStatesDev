@@ -1,0 +1,1129 @@
+##########################
+#
+#  Written by:
+#  KeoniPhoenix
+#  Seviro
+#
+##########################
+
+namespace = flavorTEX
+
+#El Paso Shootout (Four Dead in Five Seconds)
+country_event = {
+	id = flavorTEX.1
+	title = "flavorTEX.1t"
+	desc = "flavorTEX.1d"
+	picture = WOUNDED_SOLIDERS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1650
+		tag = TEX
+		NOT = { has_country_flag = wild_west_shootout }
+		is_subject = no
+		is_at_war = no
+		owns_core_province = 2484
+	}
+	
+	mean_time_to_happen = {
+		years = 25
+	
+		modifier = {
+			factor = 0.1
+			NOT = { stability = -2 }
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			set_country_flag = wild_west_shootout
+		}
+	}
+	option = {
+		name = "flavorTEX.1opta"
+		2484 = {
+			add_province_modifier = {
+				name = "gunfight_disturbance"
+				duration = 365
+			}
+		}
+	}
+}
+
+# Texas Germans Arrive
+country_event = {
+	id = flavorTEX.2
+	title = "flavorTEX.2t"
+	desc = "flavorTEX.2d"
+	picture = BIG_BOOK_eventPicture
+	#fire_only_once = yes
+
+	trigger = {
+	OR = {
+		OR = {
+			primary_culture = texan
+			primary_culture = eastern_texan
+			primary_culture = northern_texan
+			primary_culture = high_plainer
+			primary_culture = southern_texan
+			primary_culture = plains_texan
+		}
+		AND = {
+			tag = TEX
+			NOT = { primary_culture = tejano }
+			NOT = { primary_culture = mexican_texan }
+		}
+	}
+		AND = {
+			religion_group = christian # American Protestants only
+			NOT = { religion = orthodox }
+			NOT = { religion = s_catholic }
+			NOT = { religion = catholic }
+			NOT = { religion = coptic }
+			NOT = { religion = anabaptist }
+			NOT = { religion = austral_catholic }
+			NOT = { religion = austral_protestant }
+		}
+		has_institution = new_world_i
+		#NOT = { exists = USA }
+		#NOT = { exists = GER } #Germany
+		#NOT = { exists = HRE } #Holy Roman Empire
+		NOT = { has_country_flag = received_germans }
+		OR = {
+		any_known_country = {
+			AND = {
+			capital_scope = {
+				OR = {
+					continent = europe
+					continent = north_america
+					}
+				}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 2
+				continent = north_america
+				is_city = yes
+				AND = {
+					culture_group = germanic
+					NOT = { culture = flemish }
+					NOT = { culture = dutch }
+					NOT = { culture = frisian }
+				}
+			}
+		}
+	}
+		any_known_country = {
+		AND = {
+			capital_scope = {
+					continent = europe
+				}
+				culture_group = germanic
+					OR = {
+						religion = protestant
+						religion = reformed
+						religion = anglican
+						religion = hussite
+					}
+				OR = {
+					government_rank = 3
+					grown_by_development = 100
+				}
+			}
+		}
+		any_known_country = {
+			AND = {
+				capital_scope = {
+						continent = europe
+					}
+					AND = {
+						culture_group = germanic
+						NOT = { culture = flemish }
+						NOT = { culture = dutch }
+						NOT = { culture = frisian }
+					}
+					OR = {
+						religion = protestant
+						religion = reformed
+						religion = anglican
+						religion = hussite
+					}
+					AND = {
+						OR = {
+							stability = -1
+							war_exhaustion = 3
+							average_unrest = 3
+						}
+						total_development = 50
+					}
+				}
+			}
+	}
+}
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			factor = 5
+				any_known_country = {
+					technology_group = north_american
+					has_country_flag = received_germans
+				}
+		}
+
+		modifier = {
+			factor = 0.50
+				any_known_country = {
+					AND = {
+						culture_group = germanic
+						NOT = { religion = catholic }
+					}
+					alliance_with = ROOT
+				}
+		}
+
+		modifier = {
+			factor = 0.75
+				has_idea_group = humanist_ideas
+		}
+	}
+	
+	immediate = {
+		set_country_flag = received_germans
+	}
+	
+	option = { # Welcome the German immigrants
+		name = "flavorTEX.2opta"
+		add_country_modifier = {
+			name = "german_influx"
+			duration = 3650
+		}
+		random_owned_province = {
+			limit = {
+				#NOT = { culture = tejano }
+				OR = {
+					NOT = { religion = s_catholic }
+					NOT = { religion = catholic }
+				}
+				OR = {
+					AND = {
+						area = texas_area
+						NOT = { province_id = 2480 } # Dallas
+						NOT = { province_id = 2478 } # Austin
+					}
+					AND = {
+						area = texas_gulf_area
+						NOT = { province_id = 2487 } # Houston
+					}
+					AND = {
+						area = high_plains_area
+						NOT = { province_id = 2483 } # Midland
+					}
+				}
+			}
+			set_province_flag = german_development_flag
+			change_culture = texasdeutsch
+			change_religion = protestant
+			add_base_production = 2
+			add_base_manpower = 2
+			add_base_tax = 2
+			add_province_modifier = {
+				name = "german_development"
+				duration = 3650
+					}
+			}
+		add_adm_power = -25
+		add_prestige = 10
+		set_country_flag = germans_accepted
+		#random_list = {
+			#33 = {
+			#texas_area = {
+			#	random_province_in_state = {
+				#	limit =  {
+					#	NOT = { province_id = 2480 } # Dallas
+					#	NOT = { province_id = 2478 } # Austin
+					#	owned_by = ROOT
+					#	}
+					#set_province_flag = german_development_flag
+				#	change_culture = texasdeutsch
+				#	change_religion = protestant
+				#	add_base_production = 1
+				#	add_base_manpower = 2
+				#	add_base_manpower = 2
+				#	add_province_modifier = {
+				#		name = "german_development"
+				#		duration = 3650
+					#		}
+					#	}
+				#} 
+			#}
+			#33 = { 
+			#texas_gulf_area = {
+			#	limit = { owned_by = ROOT }
+			#	random_province_in_state = {
+			#		limit =  {
+			#			NOT = { province_id = 2487 } # Houston
+			#			owned_by = ROOT 
+			#			}
+			#		set_province_flag = german_development_flag
+			#		change_culture = texasdeutsch
+			#		change_religion = protestant
+			#		add_base_production = 1
+			#		add_base_manpower = 2
+			#		add_base_manpower = 2
+			##			name = "german_development"
+			#			duration = 3650
+			#				}
+			#			}
+			#	} 
+			#}
+			#33 = {	
+			#high_plains_area = {
+			#	random_province_in_state = {
+			#		limit = { owned_by = ROOT }
+			#		set_province_flag = german_development_flag
+			#		change_culture = texasdeutsch
+			#		change_religion = protestant
+			#		add_base_production = 1
+			#		add_base_manpower = 2
+			#		add_base_manpower = 2
+			#		add_province_modifier = {
+			#			name = "german_development"
+			#			duration = 3650
+			#				}
+			#			}
+			#		} 
+			#	}
+			#}
+	}
+	option = { # Turn them away
+		name = "flavorTEX.2optb"
+		add_prestige = 10
+	}
+}
+
+# Adelsverein Requests Land Grants
+country_event = {
+	id = flavorTEX.3
+	title = "flavorTEX.3t"
+	desc = "flavorTEX.3d"
+	picture = BIG_BOOK_eventPicture
+
+	trigger = {
+	has_country_flag = germans_accepted
+	AND = {
+		tag = TEX
+		NOT = { primary_culture = tejano }
+		NOT = { primary_culture = mexican_texan }
+		}
+	has_institution = new_world_i
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+
+		modifier = {
+			factor = 0.50
+				accepted_culture = texasdeutsch
+		}
+	}
+	
+	immediate = {
+		#clr_country_flag = received_germans
+		#clr_country_flag = germans_accepted
+		set_country_flag = adelsverein_grants
+	}
+	
+	option = { # Accept their request
+		name = "flavorTEX.3opta"
+		add_country_modifier = {
+			name = "texans_displaced"
+			duration = 3650
+		}
+		every_owned_province = {
+			limit =  { 
+				has_province_flag = german_development_flag
+			}
+			every_province_in_state = {
+				limit = {
+					NOT = { province_id = 2480 } # Dallas
+					NOT = { province_id = 2478 } # Austin
+					NOT = { province_id = 2487 } # Houston
+				}
+				add_base_production = 1
+				add_base_manpower = 1
+				add_base_tax = 1
+				change_religion = protestant
+				change_culture = texasdeutsch
+				hidden_effect = {
+					add_province_modifier = {
+					name = "expelled_minority"
+					duration = 5475
+			}
+		}
+			}
+		}
+		add_country_modifier = { 
+			name = texas_german_integration
+			duration = -1  
+			desc = texas_german_integration_tt
+			hidden = yes
+		}
+		custom_tooltip = texas_german_integration_tt
+		hidden_effect = {
+		if = {
+			limit = { 
+				NOT = { accepted_culture =  texasdeutsch }
+			}
+				add_accepted_culture = texasdeutsch
+		else = {
+				add_dip_power = 100
+			}
+		}
+	}
+		add_adm_power = -25
+		add_dip_power = -25
+		set_country_flag = adelsverein_grants_given
+	}
+	option = { # Texas is for the Texans! Turn them away.
+		name = "flavorTEX.3optb"
+		add_prestige = 15
+		add_country_modifier = {
+			name = "adelsverein_refused"
+			duration = 3650
+		}
+	}
+}
+
+#Texan unification with Coahuila
+country_event = {
+	id = flavorTEX.1000
+	title = "flavorTEX.1000t"
+	desc = "flavorTEX.1000d"
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "flavorTEX.1000opta"
+		COA = {
+			if = {
+				limit = {
+					NOT = {
+						religion = ROOT
+					}
+				}
+				change_religion = ROOT
+			}
+			add_historical_friend = ROOT
+			add_liberty_desire = -15
+		}
+	}
+}
+
+# country_event = {
+# 	id = "flavorTEX.1001"
+# 	title = "texas_high_plainer_revolt"
+# 	desc = "texas_high_plainer_revolt_des"
+# 	picture = WOUNDED_SOLDIERS_eventPicture
+	
+# 	fire_only_once = yes
+# 	is_triggered_only = yes
+	
+# 	option = {
+# 		name = "texas_high_plains_a"
+# 		add_stability = -3
+# 		if = {
+# 			limit = {
+# 				2483 = {
+# 					culture = high_plainer
+# 					owned_by = TEX
+# 				}
+# 			}
+# 			2483 = {
+# 				add_unrest = 10
+# 				spawn_rebels = {
+#    					type = nationalist_rebels
+#     				size = 3
+# 					culture = high_plainer
+# 				}
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				958 = {
+# 					culture = high_plainer
+# 					owned_by = TEX
+# 				}
+# 			}
+# 			958 = {
+# 				add_unrest = 5
+# 				spawn_rebels = {
+#    					type = nationalist_rebels
+#     				size = 1
+# 					culture = high_plainer
+# 				}
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				3289 = {
+# 					culture = high_plainer
+# 					owned_by = TEX
+# 				}
+# 			}
+# 			3289 = {
+# 				add_unrest = 5
+# 				spawn_rebels = {
+#    					type = nationalist_rebels
+#     				size = 1
+# 					culture = high_plainer
+# 				}
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				2481 = {
+# 					culture = high_plainer
+# 					owned_by = TEX
+# 				}
+# 			}
+# 			2481 = {
+# 				add_unrest = 7
+# 				spawn_rebels = {
+#    					type = nationalist_rebels
+#     				size = 2
+# 					culture = high_plainer
+# 				}
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				2482 = {
+# 					culture = high_plainer
+# 					owned_by = TEX
+# 				}
+# 			}
+# 			2482 = {
+# 				add_unrest = 7
+# 				spawn_rebels = {
+#    					type = nationalist_rebels
+#     				size = 3
+# 					culture = high_plainer
+# 				}
+# 			}
+# 		}
+# 		if = {
+# 			limit = {
+# 				2482 = {
+# 					NOT = { culture = high_plainer }
+# 					owned_by = TEX
+# 				}
+# 				2481 = {
+# 					OR = {
+# 						NOT = { culture = high_plainer }
+# 						NOT = { owned_by = TEX }
+# 					}
+# 				}
+# 				2489 = {
+# 					OR = {
+# 						NOT = { culture = high_plainer }
+# 						NOT = { owned_by = TEX }
+# 					}
+# 				}
+# 				958 = {
+# 					OR = {
+# 						NOT = { culture = high_plainer }
+# 						NOT = { owned_by = TEX }
+# 					}
+# 				}
+# 				2483 = {
+# 					OR = {
+# 						NOT = { culture = high_plainer }
+# 						NOT = { owned_by = TEX }
+# 					}
+# 				}
+# 			}
+# 			2482 = {
+# 				add_unrest = 7
+# 				spawn_rebels = {
+#    					type = anti_tax_rebels
+#     				size = 2
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+country_event = {
+	id = "flavorTEX.1002"
+	title = "flavorTEX.1002t"
+	desc = "flavorTEX.1002d"
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "flavorTEX.1002opta"
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = oklahoman
+				}
+			}
+			add_accepted_culture_or_dip_power = { culture = oklahoman }
+		}
+		oklahoma_area = {
+			add_province_modifier = {
+				name = "tex_accepted_oklahoman"
+				duration = 10950
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					2476 = {
+						owned_by = ROOT
+					}
+				}
+				2476 = {
+					add_province_modifier = {
+						name = "tex_accepted_oklahoman"
+						duration = 10950
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "flavorTEX.1002optb"
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = northern_texan
+				}
+			}
+			add_accepted_culture_or_dip_power = { culture = northern_texan }
+		}
+		if = {
+			limit = {
+				NOT = {
+					3288 = {
+						culture = ROOT
+					}
+				}
+			}
+			3288 = {
+				change_culture = northern_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					3287 = {
+						culture = ROOT
+					}
+				}
+			}
+			3287 = {
+				change_culture = northern_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					1010 = {
+						culture = ROOT
+					}
+				}
+			}
+			1010 = {
+				change_culture = northern_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					2477 = {
+						culture = ROOT
+					}
+				}
+			}
+			2477 = {
+				change_culture = northern_texan
+			}
+		}
+		if = {
+			limit = {
+				2476 = {
+					owned_by = ROOT
+				}
+				NOT = {
+					2476 = {
+						culture = ROOT
+					}
+				}
+			}
+			2476 = {
+				change_culture = northern_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					1011 = {
+						culture = ROOT
+					}
+				}
+			}
+			1011 = {
+				change_culture = northern_texan
+			}
+		}
+		oklahoma_area = {
+			add_province_modifier = {
+				name = "texan_settlers"
+				duration = 9125
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					2476 = {
+						owned_by = ROOT
+					}
+				}
+				2476 = {
+					add_province_modifier = {
+						name = "texan_settlers"
+						duration = 9125
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { # Question of Culture
+	id = flavorTEX.1003
+	title = flavorTEX.1003t
+	desc = flavorTEX.1003d
+	picture = CULTURE_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Move to Southerner Texan and move capital
+		name = flavorTEX.1003opta
+		trigger = {
+			owns = 2487
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 6
+					province_group = texas_provincegroup
+					OR = {
+						culture = southern_texan
+						culture = eastern_texan
+					}
+				}
+				primary_culture = eastern_texan
+				primary_culture = southern_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = southern_texan
+				}
+			}
+			change_primary_culture = southern_texan
+		}
+		set_capital = 2487 # Houston
+		change_country_color = { color = { 0 32 91 } } # Texan blue
+		set_country_flag = has_overriden_color_flag
+		hidden_effect = {
+			remove_accepted_culture = texan
+			remove_accepted_culture = eastern_texan
+			set_ruler_culture = southern_texan
+            if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = southern_texan
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = texan
+                        consort_culture = eastern_texan
+                        consort_culture = tejano
+                    }
+                }
+                set_consort_culture = southern_texan
+            }
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = texan
+						culture = eastern_texan
+					}
+				}
+				change_culture = southern_texan
+			}
+		}
+		custom_tooltip = flavorTEX.1003a.tt
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Move to Southerner Texan
+		name = flavorTEX.1003opta2
+		trigger = {
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 6
+					province_group = texas_provincegroup
+					OR = {
+						culture = southern_texan
+						culture = eastern_texan
+					}
+				}
+				primary_culture = eastern_texan
+				primary_culture = southern_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = southern_texan
+				}
+			}
+			change_primary_culture = southern_texan
+		}
+		change_country_color = { color = { 0 32 91 } } # Texan blue
+		set_country_flag = has_overriden_color_flag
+		hidden_effect = {
+			remove_accepted_culture = texan
+			remove_accepted_culture = eastern_texan
+			set_ruler_culture = southern_texan
+            if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = southern_texan
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = texan
+                        consort_culture = eastern_texan
+                        consort_culture = tejano
+                    }
+                }
+                set_consort_culture = southern_texan
+            }
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = texan
+						culture = eastern_texan
+					}
+				}
+				change_culture = southern_texan
+			}
+		}
+		custom_tooltip = flavorTEX.1003a.tt
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Move to Mexican Texan and move capital
+		name = flavorTEX.1003optb
+		trigger = {
+			owns = 3296
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 11
+					province_group = texas_provincegroup
+					OR = {
+						culture = tejano
+						culture = mexican_texan
+					}
+				}
+				primary_culture = tejano
+				primary_culture = mexican_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = mexican_texan
+				}
+			}
+			change_primary_culture = mexican_texan
+		}
+		set_capital = 3296 # Laredo
+		change_country_color = { color = { 0 104 71 } } # Mexican green
+		override_country_name = TEJAS
+		set_country_flag = has_overriden_name_flag
+		set_country_flag = has_overriden_color_flag
+		hidden_effect = {
+			remove_accepted_culture = texan
+			remove_accepted_culture = tejano
+			set_ruler_culture = mexican_texan
+            if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = mexican_texan
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = texan
+                        consort_culture = eastern_texan
+                        consort_culture = tejano
+                    }
+                }
+                set_consort_culture = mexican_texan
+            }
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = texan
+						culture = tejano
+					}
+				}
+				change_culture = mexican_texan
+			}
+		}
+		custom_tooltip = flavorTEX.1003b.tt
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Move to Mexican Texan and move capital
+		name = flavorTEX.1003optb3
+		trigger = {
+			owns = 2484
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 11
+					province_group = texas_provincegroup
+					OR = {
+						culture = tejano
+						culture = mexican_texan
+					}
+				}
+				primary_culture = tejano
+				primary_culture = mexican_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = mexican_texan
+				}
+			}
+			change_primary_culture = mexican_texan
+		}
+		set_capital = 2484 # El Paso
+		change_country_color = { color = { 0 104 71 } } # Mexican green
+		override_country_name = TEJAS
+		set_country_flag = has_overriden_name_flag
+		set_country_flag = has_overriden_color_flag
+		hidden_effect = {
+			remove_accepted_culture = texan
+			remove_accepted_culture = tejano
+			set_ruler_culture = mexican_texan
+            if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = mexican_texan
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = texan
+                        consort_culture = eastern_texan
+                        consort_culture = tejano
+                    }
+                }
+                set_consort_culture = mexican_texan
+            }
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = texan
+						culture = tejano
+					}
+				}
+				change_culture = mexican_texan
+			}
+		}
+		custom_tooltip = flavorTEX.1003b.tt
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Move to Mexican Texan
+		name = flavorTEX.1003optb2
+		trigger = {
+			OR = {
+				num_of_owned_provinces_with = {
+					value = 11
+					province_group = texas_provincegroup
+					OR = {
+						culture = tejano
+						culture = mexican_texan
+					}
+				}
+				primary_culture = tejano
+				primary_culture = mexican_texan
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = mexican_texan
+				}
+			}
+			change_primary_culture = mexican_texan
+		}
+		change_country_color = { color = { 0 104 71 } } # Mexican green
+		set_country_flag = has_overriden_color_flag
+		override_country_name = TEJAS
+		set_country_flag = has_overriden_name_flag
+		hidden_effect = {
+			remove_accepted_culture = texan
+			remove_accepted_culture = tejano
+			set_ruler_culture = mexican_texan
+            if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = mexican_texan
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = texan
+                        consort_culture = eastern_texan
+                        consort_culture = tejano
+                    }
+                }
+                set_consort_culture = mexican_texan
+            }
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = texan
+						culture = tejano
+					}
+				}
+				change_culture = mexican_texan
+			}
+		}
+		custom_tooltip = flavorTEX.1003b.tt
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Move to Great Plainer Texan
+		name = flavorTEX.1003optc
+		trigger = {
+			OR = {
+				primary_culture = high_plainer
+				primary_culture = plains_texan
+				#primary_culture = northern_texan
+				num_of_owned_provinces_with = {
+					value = 6
+					province_group = texas_provincegroup
+					OR = {
+						culture = high_plainer
+						culture = plains_texan
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = plains_texan
+				}
+			}
+			change_primary_culture = plains_texan
+		}
+		change_country_color = { country = COM } # Comanche orange
+		hidden_effect = {
+			COM = {
+				change_country_color = {
+					color = {
+						186  70  58
+					}
+				}
+				set_country_flag = tex_color_flag
+			}
+		}
+		hidden_effect = {
+			remove_accepted_culture = texan
+			remove_accepted_culture = high_plainer
+			set_ruler_culture = plains_texan
+			if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = plains_texan
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = texan
+                        consort_culture = eastern_texan
+                        consort_culture = tejano
+						consort_culture = high_plainer
+                    }
+                }
+                set_consort_culture = plains_texan
+            }
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = texan
+						culture = high_plainer
+					}
+				}
+				change_culture = plains_texan
+			}
+		}
+		custom_tooltip = flavorTEX.1003c.tt
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = { #Incase you finish this mission while not being any texan culture and wanna nope out
+		name = flavorTEX.1003optd
+		add_prestige = 20
+
+		ai_chance = {
+			factor = 1
+		}
+	}
+}

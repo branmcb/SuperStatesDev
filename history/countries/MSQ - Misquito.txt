@@ -1,0 +1,10 @@
+government = republic
+government_rank = 1
+primary_culture = miskito
+technology_group = mesoamerican
+religion = s_protestant
+capital = 838
+
+1528.1.1 = {
+    religion = catholic
+}

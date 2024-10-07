@@ -1,0 +1,5 @@
+government = monarchy
+technology_group = north_american
+primary_culture = anguillian
+religion = protestant
+capital = 4577

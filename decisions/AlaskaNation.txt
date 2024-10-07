@@ -1,0 +1,95 @@
+country_decisions = {
+
+## Reform into Alaska
+	reform_alaska = {
+		major = yes
+		potential = {
+			NOT = { exists = ALA }
+			NOT = { exists = CAN }
+			NOT = { exists = NAM }
+			NOT = { tag = USA }
+			NOT = { exists = ACU }
+			NOT = { has_country_flag = formed_alaska_flag }
+			OR = {
+				tag = ALU
+				primary_culture = alaskan
+				primary_culture = aleutian_islander
+				primary_culture = juneauvian
+				}
+			OR = {
+				ai = no
+				AND = 		{
+					ai = yes
+					num_of_cities = 5
+							}
+				}
+						}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 970
+				province_id = 973
+				province_id = 3233
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			num_of_owned_provinces_with = {
+				value = 3
+				area = alaska_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = aleutia_area
+				is_core = root
+			}
+			owns_core_province = 970 # Juneau
+			owns_core_province = 973 # Anchorage
+			owns_core_province = 3233 # Fairbanks
+		}
+		effect = {
+			on_change_tag_effect = yes
+		set_country_flag = formed_alaska_flag
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 730
+			}
+			add_prestige = 10
+			change_tag = ALA
+			ROOT = {
+				if = {
+					limit = {
+						NOT = { government_rank = 2 }
+					}
+				set_government_rank = 2
+				}
+			}
+			inside_passage_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			alaska_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aleutia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 } #Swap
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

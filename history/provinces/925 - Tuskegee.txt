@@ -1,0 +1,28 @@
+#Juarez
+
+owner = HHC
+controller = HHC
+add_core = HHC
+add_core = JUA
+culture = chihuahuan
+religion = s_catholic
+capital = "Ciudad Juárez"
+is_city = yes #150620
+trade_goods = glass
+hre = no
+base_tax = 9
+base_production = 9
+base_manpower = 6
+discovered_by = north_american
+discovered_by = mesoamerican
+center_of_trade = 1
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1810.9.16 = {
+	owner = MEX
+	controller = MEX
+	add_core = MEX
+}

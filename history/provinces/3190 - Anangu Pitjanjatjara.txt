@@ -1,0 +1,21 @@
+#Anangu Pitjanjatjara
+
+owner = SAU
+controller = SAU
+add_core = SAU
+culture = s_aboriginal
+religion = austral_protestant
+capital = "Umuwa"
+trade_goods = salt
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+is_city = yes #1000
+discovered_by = australian
+
+1901.1.1 = {
+	owner = AUS
+	controller = AUS
+	add_core = AUS
+}

@@ -1,0 +1,35 @@
+#2640 - Lenca
+
+owner = HND
+controller = HND
+add_core = HND
+capital = "Tegucigalpa"
+religion = s_catholic
+culture = honduran
+hre = no
+is_city = yes #115750
+base_tax = 3
+base_production = 4
+base_manpower = 6
+trade_goods = cloth
+discovered_by = north_american
+discovered_by = mesoamerican
+center_of_trade = 1
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1810.9.16 = {
+	add_core = CAM
+}
+
+1823.9.15 = {
+	owner = CAM
+	controller = CAM
+}
+
+1838.11.5 = {
+	owner = HND
+	controller = HND
+}

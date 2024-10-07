@@ -1,0 +1,485 @@
+country_decisions = {
+
+	## New Spain
+	new_spain_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = NSP }
+			NOT = { exists = NAM }
+			OR = {
+				culture_group = peninsular_mexican
+				# culture_group = costa_chican
+				culture_group = mazatlan_mexican
+				culture_group = occidental_mexican
+				# culture_group = oriental_mexican
+				# culture_group = gulf_mexican
+				culture_group = altiplano_central
+				#culture_group = pacific_mexican
+				culture_group = southwestern
+				primary_culture = miamian
+				primary_culture = west_floridian
+				primary_culture = cuban
+				primary_culture = puerto_rican
+				primary_culture = dominican
+				primary_culture = floridian
+				primary_culture = south_floridian
+				primary_culture = costa_rican
+				primary_culture = guatemalan
+				primary_culture = honduran
+				primary_culture = nicaraguan
+				primary_culture = salvadorian
+				primary_culture = panamanian
+			}
+			OR = {
+				AND = {
+					ai = no
+					num_of_cities = 30
+				}
+				AND = {
+					ai = yes
+					num_of_cities = 45
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 484
+				province_id = 490
+				province_id = 862
+				province_id = 871
+				province_id = 888
+				province_id = 925
+				province_id = 934
+				province_id = 841
+				province_id = 839
+				province_id = 2640
+				province_id = 2660
+				province_id = 2663
+				AND = {
+					province_id = 835
+					ROOT = {
+						NOT = {
+							owns_or_non_sovereign_subject_of = 835
+						}
+					}
+				}
+				AND = {
+					province_id = 831
+					ROOT = {
+						NOT = {
+							owns_or_non_sovereign_subject_of = 831
+						}
+					}
+				}
+				AND = {
+					province_id = 825
+					ROOT = {
+						NOT = {
+							owns_or_non_sovereign_subject_of = 825
+						}
+					}
+				}
+				AND = {
+					OR = {
+						province_id = 936
+						province_id = 944
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 2486
+								owns_core_province = 2487
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 937
+								owns_core_province = 957
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 2490
+								owns_core_province = 2508
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						province_id = 2486
+						province_id = 2487
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 936
+								owns_core_province = 944
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 937
+								owns_core_province = 957
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 2490
+								owns_core_province = 2508
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						province_id = 937
+						province_id = 957
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 2486
+								owns_core_province = 2487
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 936
+								owns_core_province = 944
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 2490
+								owns_core_province = 2508
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						province_id = 2490
+						province_id = 2508
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 2486
+								owns_core_province = 2487
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 936
+								owns_core_province = 944
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 957
+								owns_core_province = 937
+							}
+						}
+					}
+				}
+
+				AND = {
+					OR = {
+						province_id = 943
+						province_id = 2543
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 492	# San Juan
+								owns_core_province = 2484	# El Paso
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 941	# Sacramento
+								owns_core_province = 2546	# Jacksonville\St. Augstine
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 946	# San Francisco
+								owns_core_province = 2545	# Miami
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						province_id = 492
+						province_id = 2484
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 943
+								owns_core_province = 2543
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 941	# Sacramento
+								owns_core_province = 2546	# Jacksonville\St. Augstine
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 946	# San Francisco
+								owns_core_province = 2545	# Miami
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						province_id = 941
+						province_id = 2546
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 492	# San Juan
+								owns_core_province = 2484	# El Paso
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 943
+								owns_core_province = 2543
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 946	# San Francisco
+								owns_core_province = 2545	# Miami
+							}
+						}
+					}
+				}
+				AND = {
+					OR = {
+						province_id = 946
+						province_id = 2545
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 492	# San Juan
+								owns_core_province = 2484	# El Paso
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 941	# Sacramento
+								owns_core_province = 2546	# Jacksonville\St. Augstine
+							}
+						}
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								owns_core_province = 943
+								owns_core_province = 2543
+							}
+						}
+					}
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			stability = 2
+			is_subject = no
+			is_at_war = no
+			871 = {
+				is_state = yes
+			}
+			owns_core_province = 871	# Mexico City
+			owns_core_province = 484 	# Havana
+			owns_core_province = 490	# Santo Domingo
+			owns_core_province = 862 	# Veracruz
+			owns_core_province = 888	# Guadalajara
+			owns_core_province = 925	# Juarez
+			owns_core_province = 934	# Tiajuana
+			owns_core_province = 841	# Guatemala
+			owns_core_province = 839	# San Salvador
+			owns_core_province = 2640	# Tegucialpa
+			owns_core_province = 2660	# Managua
+			owns_core_province = 2663	# San Jose
+			#South American cities become a colonial nation, so allowed these provinces to also be an overlord of
+			owns_or_non_sovereign_subject_of = 835 # Panama
+			owns_or_non_sovereign_subject_of = 831 # Caracas 
+			owns_or_non_sovereign_subject_of = 825 # Bogota
+			#Must own at least one of these pairs
+			OR = {
+				AND = {
+					owns_core_province = 936	# Phoenix
+					owns_core_province = 944	# Los Angeles
+				}
+				AND = {
+					owns_core_province = 2486	# San Antonio
+					owns_core_province = 2487	# Houston
+				}
+				AND = {
+					owns_core_province = 937	# Tucson
+					owns_core_province = 957	# Albuquerque
+				}
+				AND = {
+					owns_core_province = 2490	# New Orleans
+					owns_core_province = 2508	# Mobile
+				}
+			}
+			#Must own at least one of these pairs
+			OR = {
+				AND = {
+					owns_core_province = 943	# San Diego
+					owns_core_province = 2543	# Pensacola
+				}
+				AND = {
+					owns_core_province = 492	# San Juan
+					owns_core_province = 2484	# El Paso
+				}
+				AND = {
+					owns_core_province = 941	# Sacramento
+					owns_core_province = 2546	# Jacksonville\St. Augstine
+				}
+				AND = {
+					owns_core_province = 946	# San Francisco
+					owns_core_province = 2545	# Miami
+				}
+			}
+		}
+					
+		effect = {
+			on_change_tag_effect = yes
+			hidden_effect = {
+				restore_country_name = yes
+			}	
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 730
+			}
+			add_prestige = 30
+			change_tag = NSP
+			NSP = {
+				set_capital = 871			# Mexico City
+			}
+			# #country_event = { id = ideagroups.1 } #Swap
+			central_america_superregion = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			caribbean_superregion = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			colombia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			american_southwest_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			texas_gulf_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			texas_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			louisiana_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			mississippi_delta_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			st_johns_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			suncoast_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+			south_florida_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = NSP
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+}

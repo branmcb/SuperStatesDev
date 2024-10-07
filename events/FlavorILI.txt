@@ -1,0 +1,164 @@
+##########################
+#
+#  Written by:
+#  goik
+#
+##########################
+
+namespace = flavorILI
+
+country_event = { #Culture
+	id = flavorILI.1000
+	title = "flavorILI.1000t"
+	desc = "flavorILI.1000d"
+	picture = CULTURE_eventPicture
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #Yes to Chicago Capital
+		name = "flavorILI.1000opta"
+		if = {
+			limit = {
+				NOT = {
+					2565 = {
+						is_capital = yes
+					}
+				}
+			}
+			set_capital = 2565
+		}
+		2565 = {
+			add_base_tax = 2
+			add_base_production = 2
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = great_laker_illinoisan
+				}
+			}
+			change_primary_culture = great_laker_illinoisan
+		}
+		custom_tooltip = flavorILI.1000a.tt
+		change_country_color = {
+			country = CCK
+		}
+		set_country_flag = has_overriden_color_flag
+		hidden_effect = {
+			CCK = {
+				change_country_color = {
+					color = {
+						44  73  127
+					}
+				}
+				set_country_flag = ili_color_flag
+			}
+		}
+		hidden_effect = {
+			set_ruler_culture = great_laker_illinoisan
+			if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = great_laker_illinoisan
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = illinoisan
+                        consort_culture = chicagoan
+                    }
+                }
+                set_consort_culture = great_laker_illinoisan
+            }
+			remove_accepted_culture = chicagoan
+			remove_accepted_culture = illinoisan
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = chicagoan
+						culture = illinoisan
+					}
+				}
+				change_culture = great_laker_illinoisan
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+
+	option = { #No to Chicago Capital
+		name = "flavorILI.1000optb"
+		trigger = {
+			NOT = {
+				2565 = {
+					is_capital = yes
+				}
+			}
+		}
+		capital_scope = {
+			add_base_tax = 2
+			add_base_production = 2
+		}
+		if = {
+			limit = {
+				NOT = {
+					primary_culture = great_laker_illinoisan
+				}
+			}
+			change_primary_culture = great_laker_illinoisan
+		}
+		change_country_color = {
+			country = CCK
+		}
+		set_country_flag = has_overriden_color_flag
+		hidden_effect = {
+			CCK = {
+				change_country_color = {
+					color = {
+						44  73  127
+					}
+				}
+				set_country_flag = ili_color_flag
+			}
+		}
+		custom_tooltip = flavorILI.1000a.tt
+		hidden_effect = {
+			set_ruler_culture = great_laker_illinoisan
+			if = {
+                limit = {
+                    has_heir = yes
+                }
+                set_heir_culture = great_laker_illinoisan
+            }
+            if = {
+                limit = {
+                    has_consort = yes
+                    OR = {
+                        consort_culture = illinoisan
+                        consort_culture = chicagoan
+                    }
+                }
+                set_consort_culture = great_laker_illinoisan
+            }
+			remove_accepted_culture = chicagoan
+			remove_accepted_culture = illinoisan
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = chicagoan
+						culture = illinoisan
+					}
+				}
+				change_culture = great_laker_illinoisan
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}

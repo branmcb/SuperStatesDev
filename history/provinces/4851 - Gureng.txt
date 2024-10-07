@@ -1,0 +1,6 @@
+#4851 - Glen Canyon
+
+discovered_by = north_american
+discovered_by = mesoamerican
+
+

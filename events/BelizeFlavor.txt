@@ -1,0 +1,88 @@
+##########################
+#
+#  Written by:
+#  KeoniPhoenix
+#
+##########################
+
+namespace = BelizeFlavor
+
+# Belize Culture Event
+country_event = {
+	id = BelizeFlavor.1
+	title = "BelizeFlavor.1t"
+	desc = "BelizeFlavor.1d"
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		NOT = {
+			has_country_flag = belizean_culture
+		}
+		843 = { 
+			is_capital = no
+			owned_by = ROOT
+			NOT = { culture = belizean }
+			NOT = { is_core = BLZ }
+		}
+		4589 = { 
+			is_capital = no
+			owned_by = ROOT
+			NOT = { culture = belizean }
+			NOT = { is_core = BLZ }
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 250
+		
+		modifier = {
+			factor = 0.5
+			stability = -1
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				843 = { has_owner_accepted_culture = no }
+				4589 = { has_owner_accepted_culture = no }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				843 = { has_owner_religion = no }
+				4589 = { has_owner_religion = no }
+			}
+		}
+		modifier = {
+			factor = 2
+			AND = {
+				843 = { is_core = ROOT }
+				4589 = { is_core = ROOT }
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				843 = { development = 35 }
+				4589 = { development = 35 }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_any_disaster = yes
+		}
+	}
+	
+	option = {
+		name = "BelizeFlavor.1opta"
+		set_country_flag = belizean_culture
+		843 = { 
+			change_culture = belizean
+			add_core = BLZ
+		}
+		4589 = { 
+			change_culture = belizean
+			add_core = BLZ
+		}
+	}
+}

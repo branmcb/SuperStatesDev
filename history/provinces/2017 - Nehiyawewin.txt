@@ -1,0 +1,26 @@
+#Canberra
+
+owner = ACT
+controller = ACT
+add_core = ACT
+culture = canberran
+religion = austral_protestant
+capital = "Canberra"
+trade_goods = cloth
+hre = no
+base_tax = 9
+base_production = 5
+base_manpower = 5
+is_city = yes #37420
+discovered_by = australian
+center_of_trade = 1
+
+1399.1.1 = {
+	fort_15th = yes 
+}
+
+1901.1.1 = {
+	owner = AUS
+	controller = AUS
+	add_core = AUS
+}

@@ -1,0 +1,34 @@
+#836 - Chorotega
+
+owner = CRC
+controller = CRC
+add_core = CRC
+capital = "San José"
+base_tax = 6
+base_production = 8
+base_manpower = 6
+is_city = yes #34220
+trade_goods = coffee
+culture = costa_rican
+religion = s_catholic
+hre = no
+discovered_by = north_american
+discovered_by = mesoamerican
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1810.9.16 = {
+	add_core = CAM
+}
+
+1823.9.15 = {
+	owner = CAM
+	controller = CAM
+}
+
+1838.11.5 = {
+	owner = CRC
+	controller = CRC
+}

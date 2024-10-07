@@ -1,0 +1,38 @@
+#1108 - Gisborne
+
+add_core = TEA
+owner = TEA
+controller = TEA
+culture = maori
+religion = animism
+hre = no
+capital = "Tauranga"
+is_city = yes
+trade_goods = fish
+base_tax = 4 
+base_production = 4
+base_manpower = 2
+
+discovered_by = australian
+discovered_by = polynesian_tech
+
+center_of_trade = 1
+
+1840.1.1 = {
+	trade_goods = fish
+	is_city = yes
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}
+
+1852.6.30 = {	
+	culture = new_zealander
+	add_core = NZL
+}
+
+1907.1.1 = {
+	owner = NZL
+	controller = NZL
+	remove_core = GBR
+}

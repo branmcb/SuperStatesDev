@@ -1,0 +1,116 @@
+country_decisions = {
+
+## PACIFIC OCEANIA
+	pacific_oceania_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = PCO }
+			#technology_group = north_american
+			culture_group = micronesian-pacific_islander
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1235
+				province_id = 1240
+				province_id = 968
+				province_id = 4896
+				superregion = oceania_superregion
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				value = 3
+				region = eastern_melanesia_region
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				region =  micronesia_region
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 8
+				region = pacific_islands_region
+				is_core = root
+			}
+			owns_core_province = 1235 # Guam
+			owns_core_province = 1240 # NMI
+			owns_core_province = 4896 # Rota
+			owns_core_province = 968 # Honolulu
+		}
+		effect = {
+			on_change_tag_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 730
+			}
+			add_prestige = 10
+			change_tag = PCO
+			PCO = {
+				if = {
+					limit = {
+						NOT = { government_rank = 3 }
+					}
+					set_government_rank = 3
+				}
+				bismarck_islands_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = PCO
+				}
+				east_solomon_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = PCO
+				}
+				west_solomon_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = PCO
+				}
+				vanuatu_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = PCO
+				}
+				southeastern_melanesia_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = PCO
+				}
+				micronesia_region = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = PCO
+				}
+				pacific_islands_region = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = PCO
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,88 @@
+country_decisions = {
+## Reform into Georgia
+	georgia_us_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = formed_us_georgia } #Only once
+			NOT = { exists = GRG }
+			NOT = { tag = CSA }
+			NOT = { tag = ASE }
+			NOT = { tag = USA }
+			NOT = { exists = NAM }
+			OR = {
+				primary_culture = us_georgian
+				primary_culture = south_georgian
+				tag = SGR
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = savannah_area
+				area = georgia_us_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				value = 3
+				area = savannah_area
+				is_core = root
+			}
+			num_of_owned_provinces_with = {
+				value = 4
+				area = georgia_us_area
+				is_core = root
+			}
+			owns_core_province = 2510 # Atlanta
+			owns_core_province = 2512 # Savannah
+		}
+		effect = {
+			on_change_tag_effect = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 730
+			}
+			add_prestige = 10
+			change_tag = GRG
+			set_country_flag = formed_us_georgia
+			GRG = {
+				if = {
+					limit = {
+						NOT = { government_rank = 2 }
+					}
+					set_government_rank = 2
+				}
+				georgia_us_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GRG
+				}
+				if = {
+					limit = {
+						NOT = { owns = 3078 }
+						NOT = { is_core = 3078 }
+					}
+					3078 = { add_permanent_claim = GRG }
+				}
+			}
+				swap_non_generic_missions = yes
+				country_event = { id = ideagroups.1 } #Swap
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,200 @@
+#Lutherans are more geared towards warfare
+aspect_dominus_reget_me = {
+	cost = 100
+	modifier = {
+		land_attrition = -0.15
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 15
+			is_at_war = yes
+			NOT = { manpower_percentage = 0.66 }
+		}
+	}
+}
+
+aspect_welcoming_churches = {
+	cost = 100
+	modifier = {
+		stability_cost_modifier = -0.10
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 2
+			unrest = 4
+			NOT = { stability = 0 }
+		}
+	}
+}
+
+aspect_passionate_theology = {
+	cost = 100
+	modifier = { 
+		global_missionary_strength = 0.02
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			NOT = { religious_unity = 0.8 }
+		}
+	}
+}
+
+aspect_mighty_fortress = {
+	cost = 100
+	modifier = { 
+		defensiveness = 0.25
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+	}
+}
+
+aspect_soliders_of_the_cross = {
+	cost = 100
+	modifier = { 
+		discipline = 0.025
+	}	
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			is_at_war = yes
+		}
+	}
+}
+
+aspect_glory_under_the_cross = {
+	cost = 100
+	modifier = { 
+		prestige = 0.75
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			NOT = { prestige = -40 }
+		}
+	}
+}
+
+aspect_confessions_from_the_state = {
+	cost = 100
+	modifier = {
+		legitimacy = 0.5
+		devotion = 0.5
+		horde_unity = 0.5
+		republican_tradition = 0.25
+	}
+	ai_will_do = {
+		factor = 12
+		modifier = {
+			factor = 2
+			NOT = { legitimacy = 60 }
+		}
+	}
+}
+
+aspect_missions_to_the_tribes = {
+	cost = 100
+	modifier = {
+		global_colonial_growth = 15
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			num_of_colonies = 1
+		}
+		modifier = {
+			factor = 2
+			num_of_colonists = 2
+		}
+	}
+}
+
+aspect_answering_the_call_to_serve = {
+	cost = 100
+	modifier = {
+		manpower_recovery_speed = 0.1
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			is_at_war = yes
+			NOT = { manpower_percentage = 0.9 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { manpower_percentage = 0.5 }
+		}
+	}
+}
+
+aspect_cross_on_the_front_line = {
+	cost = 100
+	modifier = { 
+		land_morale = 0.1
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			is_at_war = yes
+			manpower_percentage = 0.75
+		}
+	}
+}
+
+aspect_military_chaplains = {
+	cost = 100
+	modifier = { 
+		army_tradition = 0.5
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			is_at_war = no
+		}
+		modifier = {
+			factor = 2
+			is_at_war = no
+			NOT = { army_tradition = 50 }
+		}
+	}
+}
+
+aspect_integrity_through_faith = {
+	cost = 100
+	modifier = {
+		yearly_corruption = -0.1
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			corruption = 5
+		}
+		modifier = {
+			factor = 2
+			corruption = 10
+		}
+		modifier = {
+			factor = 5
+			corruption = 50
+		}
+	}
+}

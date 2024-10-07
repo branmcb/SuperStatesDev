@@ -1,0 +1,610 @@
+country_decisions = {
+
+ ## FREE north_american OF AMERICA
+	# free_north_american_nation = {
+		# major = yes
+		# potential = {
+			# NOT = { exists = FSA }
+			# NOT = { exists = USA }
+			# NOT = { exists = IUS }
+			# #technology_group = north_american
+			# OR = {
+				# culture_group = great_laker
+				# culture_group = midatlantic_group
+				# culture_group = new_england_group
+			# }
+			# OR = {
+				# ai = no
+				# AND = {
+					# ai = yes
+					# num_of_cities = 20
+				# }
+			# }
+		# }
+		
+		# allow = {
+			# is_subject = no
+			# is_at_war = no
+			# new_england_region = {
+				# type  = all
+				# owned_by = ROOT
+			# }
+			# mid_atlantic_region = {
+				# type  = all
+				# owned_by = ROOT
+			# }
+			# great_lakes_region = {
+				# type  = all
+				# owned_by = ROOT
+			# }
+			# owns_core_province = 2585
+			# owns_core_province = 2601
+			# owns_core_province = 2616
+		# }
+		# effect = {
+			# add_country_modifier = {
+				# name = "centralization_modifier"
+				# duration = 5475
+			# }
+			# iowa_area = {
+				# limit = { 
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = FSA
+			# }
+			# kansas_area = {
+				# limit = { 
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = FSA
+			# }
+			# minnesota_area = {
+				# limit = { 
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = FSA
+			# }
+			# northern_california_area = {
+				# limit = { 
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = FSA
+			# }
+			# oregon_area = {
+				# limit = { 
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = FSA
+			# }
+			# southern_california_area = {
+				# limit = { 
+					# NOT = { owned_by = ROOT }
+				# }
+				# add_permanent_claim = FSA
+			# }
+			# change_tag = FSA
+			# set_government_rank = 3
+			# add_prestige = 20
+			# change_government = constitutional_republic
+			# FSA = {
+				# set_capital = 2616		# Washington DC
+			# }
+			# country_event = { id = ideagroups.1 } #Swap 
+		# }
+		# ai_will_do = {
+			# factor = 1
+		# }
+	#}
+
+ ## United States	
+	united_states_nation = {
+		major = yes
+		potential = {
+			NOT = { exists = USA }
+			NOT = { tag = CAN }
+			NOT = { tag = MEX }
+			#NOT = { tag = ACD }
+			NOT = { tag = AUS }
+			NOT = { tag = ENG }
+			NOT = { tag = GBR }
+			#technology_group = north_american
+			OR = {
+				AND = {
+					culture_group = great_laker
+					NOT = {
+						culture = ontarian
+						culture = northern_ontarian
+					}
+				}
+				culture_group = appalachian
+				#culture_group = alaskan_group
+				culture_group = southerner
+				#culture_group = great_plainer_group
+				culture_group = intermountain_western
+				culture_group = midatlantic_group
+				culture_group = midwestern_group
+				culture_group = new_england_group
+				culture_group = pacific_coastal
+				culture_group = southwestern
+				#culture_group = 
+				# In case Alaskan group is removed
+				primary_culture = aleutian_islander
+				primary_culture = alaskan
+				primary_culture = juneauvian
+				# Misc.
+				#primary_culture = navajo
+				culture_group = new_german
+				#primary_culture = greenlandic
+				primary_culture = filipino
+				# Canadian, French
+				primary_culture = torontoan
+				primary_culture = vancouverite
+				primary_culture = cajun
+				primary_culture = acadian
+				primary_culture = brayon
+				primary_culture = nova_scotian
+				# Caribbean, inc. former territories/occupied areas
+				primary_culture = cuban
+				primary_culture = virgin_islander
+				primary_culture = puerto_rican
+				primary_culture = miamian
+				primary_culture = dominican
+				primary_culture = haitian
+				primary_culture = nicaraguan
+				primary_culture = grenadian
+				# Central American, Mexican, inc. former territories/occupied areas
+				primary_culture = mexican_texan
+				primary_culture = tejano
+				primary_culture = panamanian
+				primary_culture = baja_californian
+				primary_culture = south_baja_californian
+				primary_culture = united_baja_californian
+				# Pacific Islander, inc. associated north_american
+				primary_culture = hawaiian
+				primary_culture = guamanian
+				primary_culture = kosraean
+				primary_culture = northern_marianas_islander
+				primary_culture = palauan
+				primary_culture = samoan_american
+				primary_culture = pohnpeian
+				primary_culture = wake_islander
+				primary_culture = yapese
+				primary_culture = marshallese
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 75
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2616
+				province_id = 2585
+				AND = { #New York
+					province_id = 2601
+					ROOT = {
+						NOT = {
+							owns_core_province = 944
+						}
+					}
+				}
+				AND = { #LA
+					province_id = 944
+					ROOT = {
+						NOT = {
+							owns_core_province = 2601
+						}
+					}
+				}
+
+				AND = { #Cook
+					province_id = 2565
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 2480
+								owns_core_province = 2545
+							}
+						}
+					}
+				}
+				AND = { #Dallas
+					province_id = 2480
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 2565
+								owns_core_province = 2545
+							}
+						}
+					}
+				}
+				AND = { #Dade
+					province_id = 2545
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 2480
+								owns_core_province = 2565
+							}
+						}
+					}
+				}
+
+				AND = { #San Francisco
+					province_id = 946
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 2573
+								owns_core_province = 990
+							}
+						}
+					}
+				}
+				AND = { #Wayne
+					province_id = 2573
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 946
+								owns_core_province = 990
+							}
+						}
+					}
+				}
+				AND = { #Denver
+					province_id = 990
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 946
+								owns_core_province = 2573
+							}
+						}
+					}
+				}
+
+				AND = { #Fulton
+					province_id = 2510
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 936
+								owns_core_province = 3323
+							}
+						}
+					}
+				}
+				AND = { #Maricopa
+					province_id = 936
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 2510
+								owns_core_province = 3323
+							}
+						}
+					}
+				}
+				AND = { #Hennipen
+					province_id = 3323
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 936
+								owns_core_province = 2510
+							}
+						}
+					}
+				}
+
+				AND = { #King
+					province_id = 965
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 2487
+								owns_core_province = 2609
+							}
+						}
+					}
+				}
+				AND = { #Harris
+					province_id = 2487
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 965
+								owns_core_province = 2609
+							}
+						}
+					}
+				}
+				AND = { #Suffolk
+					province_id = 2609
+					ROOT = {
+						NOT = {
+							OR = {
+								owns_core_province = 965
+								owns_core_province = 2487
+							}
+						}
+					}
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_subject = no
+			is_at_war = no
+			if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							region = deep_south_region
+							region = appalachia_region
+							region = mid_atlantic_region
+							region = new_england_region
+							region = maritimes_region
+							region = central_canada_region
+							superregion = caribbean_superregion
+							province_group = nunavut_provincegroup
+							province_group = new_york_provincegroup
+							province_group = pennsylvania_provincegroup
+							province_group = ohio_provincegroup
+							province_group = south_dakota_provincegroup
+							province_group = oklahoma_provincegroup
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = easternUSACheck
+					always = yes
+				}
+				num_of_owned_provinces_with = {
+					value = 25
+					region = mid_atlantic_region
+					is_core = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					region = deep_south_region
+					is_core = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					region = appalachia_region
+					is_core = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 15
+					region = new_england_region
+					is_core = ROOT
+				}
+			}
+			else_if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							region = great_plains_region
+							region = old_southwest_region
+							province_group = michigan_provincegroup
+							province_group = indiana_provincegroup
+							province_group = illinois_provincegroup
+							province_group = wisconsin_provincegroup
+							province_group = missouri_provincegroup
+							province_group = iowa_provincegroup
+							province_group = minnesota_provincegroup
+							province_group = alberta_provincegroup
+							province_group = saskatchewan_provincegroup
+							province_group = northwest_territories_provincegroup
+							area = manitoba_area
+							province_group = new_mexico_provincegroup
+							province_group = texas_provincegroup
+							province_group = colorado_provincegroup
+							province_group = montana_provincegroup
+							province_group = wyoming_provincegroup
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = centralUSACheck
+					always = yes
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					region = great_lakes_region
+					is_core = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					region = american_midwest_region
+					is_core = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					region = appalachia_region
+					is_core = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 10
+					region = mid_atlantic_region
+					is_core = ROOT
+				}
+				OR = {
+					num_of_owned_provinces_with = {
+						value = 15
+						region = great_plains_region
+						is_core = ROOT
+					}
+					num_of_owned_provinces_with = {
+						value = 15
+						region = old_southwest_region
+						is_core = ROOT
+					}
+				}
+			}
+
+			else_if = {
+				limit = {
+					capital_scope = {
+						OR = {
+							province_group = california_provincegroup
+							province_group = oregon_provincegroup
+							province_group = washington_provincegroup
+							province_group = british_columbia_provincegroup
+							province_group = alaska_provincegroup
+							province_group = arizona_provincegroup
+							province_group = nevada_provincegroup
+							province_group = idaho_provincegroup
+							province_group = utah_provincegroup
+							province_group = yukon_provincegroup
+							superregion = central_america_superregion
+							superregion = oceania_superregion
+							region = philippines_region
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = westernUSACheck
+					always = yes
+				}
+				num_of_owned_provinces_with = {
+					value = 25
+					region = pacific_coast_region
+					is_core = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					region = intermountain_west_region
+					is_core = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 20
+					region = american_southwest_region
+					is_core = ROOT
+				}
+				OR = {
+					num_of_owned_provinces_with = {
+						value = 15
+						region = great_plains_region
+						is_core = ROOT
+					}
+					num_of_owned_provinces_with = {
+						value = 15
+						region = old_southwest_region
+						is_core = ROOT
+					}
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = CapitalUSACheck
+					always = no
+				}
+			}
+
+			OR = {
+				owns_core_province = 2601 # New York
+				owns_core_province = 944 # Los Angeles
+			}
+			OR = {
+				owns_core_province = 2565 # Chicago
+				owns_core_province = 2480 # Dallas
+				owns_core_province = 2545 # Miami
+			}
+			OR = {
+				owns_core_province = 946 # San Francisco
+				owns_core_province = 2573 # Detroit
+				owns_core_province = 990 # Denver
+			}
+			OR = {
+				owns_core_province = 2510 # Atlanta
+				owns_core_province = 936 # Phoenix
+				owns_core_province = 3323 # Minneapolis
+			}
+			OR = {
+				owns_core_province = 965 # Seattle
+				owns_core_province = 2487 # Houston
+				owns_core_province = 2609 # Boston
+			}
+			owns_core_province = 2616 # Washington, D.C.
+			owns_core_province = 2585 # Philadelphia
+		}
+		effect = {
+			on_change_tag_effect = yes
+			hidden_effect = {
+				restore_country_name = yes
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 9125
+			}
+			add_prestige = 25
+			change_tag = USA
+			USA = {
+				if = {
+					limit = {
+						NOT = { government_rank = 3 }
+					}
+					set_government_rank = 3
+				}
+			}
+			puerto_rico_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = USA
+			}
+			west_virgin_islands_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = USA
+			}
+			marianas_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = USA
+			}
+			if = {
+				limit = {
+					2617 = { NOT = { owned_by = ROOT } }
+				}
+				2617 = { add_permanent_claim = USA }
+			}
+			if = {
+				limit = {
+					3315 = { NOT = { owned_by = ROOT } }
+				}
+				3315 = { add_permanent_claim = USA }
+			}
+			2616 = {
+				add_core = USA
+			}
+			2585 = {
+				add_core = USA
+			}
+			if = {
+				limit = {
+					government = republic
+				}
+				add_government_reform = federal_republic
+			}
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 } #Swap 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

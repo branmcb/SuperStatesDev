@@ -1,0 +1,6 @@
+government = monarchy
+government_rank = 1
+technology_group = north_american
+primary_culture = aruban
+religion = catholic
+capital = 3331

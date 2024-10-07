@@ -1,0 +1,35 @@
+#841-Iximché
+
+owner = GTM
+controller = GTM
+add_core = GTM
+capital = "Guatemala City"
+base_tax = 7
+base_production = 7
+base_manpower = 6
+trade_goods = cloth
+culture = guatemalan
+religion = s_catholic
+hre = no
+is_city = yes #95000
+discovered_by = north_american
+discovered_by = mesoamerican
+center_of_trade = 2
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1810.9.16 = {
+	add_core = CAM
+}
+
+1823.9.15 = {
+	owner = CAM
+	controller = CAM
+}
+
+1841.2.18 = {
+	owner = GTM
+	controller = GTM
+}

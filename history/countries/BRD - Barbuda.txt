@@ -1,0 +1,5 @@
+government = monarchy
+technology_group = north_american
+primary_culture = barbudan
+religion = s_protestant
+capital = 4582

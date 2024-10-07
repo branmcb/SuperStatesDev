@@ -1,0 +1,35 @@
+#841 - Guatemala
+
+owner = GTM
+controller = GTM
+add_core = GTM
+add_core = LOS
+capital = "Retalhuleu"
+base_tax = 2
+base_production = 1
+base_manpower = 3
+trade_goods = cocoa
+culture = guatemalan
+religion = s_catholic
+hre = no
+is_city = yes #9050
+discovered_by = north_american
+discovered_by = mesoamerican
+
+1528.1.1 = {
+	religion = catholic
+}
+
+1810.9.16 = {
+	add_core = CAM
+}
+
+1823.9.15 = {
+	owner = CAM
+	controller = CAM
+}
+
+1841.2.18 = {
+	owner = GTM
+	controller = GTM
+}
